@@ -93,52 +93,54 @@ st.title('¡Hola neurona!')
 
 
 
-# Crear pestañas para diferentes configuraciones de entrada en la neurona
-entradas = st.tabs(["Una entrada", "Dos entradas", "Tres entradas y sesgo"])
+import streamlit as st
 
-# Configuración para una neurona con una entrada y un peso
-with entradas[0]:
-   st.header("Una neurona con una entrada y un peso")
-   peso_1 = st.slider('Peso', 0.0, 5.0, key=1)
-   entrada_1 = st.number_input('Introduzca el valor de la entrada', key=2)
+# Create tabs for different configurations of input in the neuron
+selected_tab = st.radio("Seleccionar tipo de entrada", ["Una entrada", "Dos entradas", "Tres entradas y sesgo"])
 
-   # Calcular la salida de la neurona
-   salida_1 = entrada_1 * peso_1
+# Configuration for a neuron with one input and one weight
+if selected_tab == "Una entrada":
+    st.header("Una neurona con una entrada y un peso")
+    peso_1 = st.slider('Peso', 0.0, 5.0, key=1)
+    entrada_1 = st.number_input('Introduzca el valor de la entrada', key=2)
 
-   # Mostrar la salida cuando se presiona el botón
-   if st.button("Calcular la salida", key=3):
-      st.write('La salida de la neurona es', salida_1)
+    # Calculate neuron output
+    salida_1 = entrada_1 * peso_1
 
-# Configuración para una neurona con dos entradas y dos pesos
-with entradas[1]:
-   st.header("Una neurona con dos entradas y dos pesos")
-   col_2 = st.columns(2)
-   peso_2_0 = col_2[0].slider('Peso w₀', 0.0, 5.0, key=4)
-   peso_2_1 = col_2[1].slider('Peso w₁', 0.0, 5.0, key=5)
+    # Display the output when the button is pressed
+    if st.button("Calcular la salida", key=3):
+        st.write('La salida de la neurona es', salida_1)
 
-   entrada_2_0 = col_2[0].number_input('Entrada x₀', key=6)
-   entrada_2_1 = col_2[1].number_input('Entrada x₁', key=7)
+# Configuration for a neuron with two inputs and two weights
+elif selected_tab == "Dos entradas":
+    st.header("Una neurona con dos entradas y dos pesos")
+    col_2 = st.columns(2)
+    peso_2_0 = col_2[0].slider('Peso w₀', 0.0, 5.0, key=4)
+    peso_2_1 = col_2[1].slider('Peso w₁', 0.0, 5.0, key=5)
 
-   salida_2 = (entrada_2_0 * peso_2_0) + (entrada_2_1 * peso_2_1)
+    entrada_2_0 = col_2[0].number_input('Entrada x₀', key=6)
+    entrada_2_1 = col_2[1].number_input('Entrada x₁', key=7)
 
-   if st.button("Calcular la salida", key=8):
-      st.write('La salida de la neurona es', salida_2)
+    salida_2 = (entrada_2_0 * peso_2_0) + (entrada_2_1 * peso_2_1)
 
-# Configuración para una neurona con tres entradas y sesgo
-with entradas[2]:
-   st.header("Una neurona con tres entradas y bias")
-   col_3 = st.columns(3)
-   peso_3_0 = col_3[0].slider('Peso w₀', 0.0, 5.0, key=9)
-   peso_3_1 = col_3[1].slider('Peso w₁', 0.0, 5.0, key=10)
-   peso_3_2 = col_3[2].slider('Peso w₂', 0.0, 5.0, key=11)
+    if st.button("Calcular la salida", key=8):
+        st.write('La salida de la neurona es', salida_2)
 
-   entrada_3_0 = col_3[0].number_input('Entrada x₀', key=12)
-   entrada_3_1 = col_3[1].number_input('Entrada x₁', key=13)
-   entrada_3_2 = col_3[2].number_input('Entrada x₂', key=14)
+# Configuration for a neuron with three inputs and bias
+elif selected_tab == "Tres entradas y sesgo":
+    st.header("Una neurona con tres entradas y bias")
+    col_3 = st.columns(3)
+    peso_3_0 = col_3[0].slider('Peso w₀', 0.0, 5.0, key=9)
+    peso_3_1 = col_3[1].slider('Peso w₁', 0.0, 5.0, key=10)
+    peso_3_2 = col_3[2].slider('Peso w₂', 0.0, 5.0, key=11)
 
-   sesgo = st.number_input('Introduzca el valor del sesgo', key=15)
+    entrada_3_0 = col_3[0].number_input('Entrada x₀', key=12)
+    entrada_3_1 = col_3[1].number_input('Entrada x₁', key=13)
+    entrada_3_2 = col_3[2].number_input('Entrada x₂', key=14)
 
-   salida_3 = (entrada_3_0 * peso_3_0) + (entrada_3_1 * peso_3_1) + (entrada_3_2 * peso_3_2) + sesgo
+    sesgo = st.number_input('Introduzca el valor del sesgo', key=15)
 
-   if st.button("Calcular la salida", key=16):
-      st.write('La salida de la neurona es', salida_3)
+    salida_3 = (entrada_3_0 * peso_3_0) + (entrada_3_1 * peso_3_1) + (entrada_3_2 * peso_3_2) + sesgo
+
+    if st.button("Calcular la salida", key=16):
+        st.write('La salida de la neurona es', salida_3)
