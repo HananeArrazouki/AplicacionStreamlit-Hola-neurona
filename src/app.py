@@ -7,21 +7,6 @@ st.image('img/neurona.png', width=450)
 # Añadir un título
 st.title('¡Hola neurona!')
 
-"""
-Primera forma:
-
-"""
-
-"""
-   Función para representar y calcular la salida de una neurona con una entrada y un peso.
-
-   Interfaz de Usuario:
-   - Muestra un encabezado indicando la configuración de la neurona.
-   - Utiliza un control deslizante para definir el peso de la única entrada.
-   - Permite al usuario ingresar el valor de la entrada mediante un campo de entrada numérica.
-   - Calcula la salida de la neurona multiplicando la entrada por el peso.
-   - Presenta un botón para calcular y mostrar la salida cuando se presiona.
-"""
 def neurona_una_entrada():
    # Mostrar el encabezado
    st.header("Una neurona con una entrada y un peso")
@@ -39,16 +24,6 @@ def neurona_una_entrada():
    if st.button("Calcular la salida", key=3):
       st.write('La salida de la neurona es', salida_1)
 
-"""
-   Función que representa y calcula la salida de una neurona con dos entradas y dos pesos.
-
-   Interfaz de Usuario:
-   - Muestra un encabezado indicando la configuración de la neurona.
-   - Utiliza dos controles deslizantes para definir los pesos de las dos entradas.
-   - Permite al usuario ingresar los valores de las entradas mediante campos de entrada numérica.
-   - Calcula la salida de la neurona como la suma ponderada de las entradas y pesos.
-   - Presenta un botón para calcular y mostrar la salida cuando se presiona.
-"""
 def neurona_dos_entradas():
    # Mostrar el encabezado
    st.header("Una neurona con dos entradas y dos pesos")
@@ -75,17 +50,7 @@ def neurona_dos_entradas():
    if st.button("Calcular la salida", key=8):
       st.write('La salida de la neurona es', salida_2)
 
-"""
-   Función que representa y calcula la salida de una neurona con tres entradas y sesgo.
 
-   Interfaz de Usuario:
-   - Muestra un encabezado indicando la configuración de la neurona.
-   - Utiliza tres controles deslizantes para definir los pesos de las tres entradas.
-   - Permite al usuario ingresar los valores de las entradas mediante campos de entrada numérica.
-   - Incluye un campo de entrada para definir el valor del sesgo.
-   - Calcula la salida de la neurona como la suma ponderada de entradas y pesos, más el sesgo.
-   - Presenta un botón para calcular y mostrar la salida cuando se presiona.
-"""
 def neurona_tres_entradas_sesgo():
    # Mostrar el encabezado
    st.header("Una neurona con tres entradas y sesgo")
@@ -127,10 +92,6 @@ with entradas[2]:
    neurona_tres_entradas_sesgo()
 
 
-"""
-Segunda forma:
-
-"""
 
 # Crear pestañas para diferentes configuraciones de entrada en la neurona
 # entradas = st.tabs(["Una entrada", "Dos entradas", "Tres entradas y sesgo"])
